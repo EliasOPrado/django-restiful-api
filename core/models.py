@@ -4,6 +4,7 @@ from comentarios.models import Comentario
 from avaliacoes.models import Avaliacao
 from enderecos.models import Endereco
 
+
 # Create your models here.
 class PontoTuristico(models.Model):
     nome = models.CharField(max_length=150)
