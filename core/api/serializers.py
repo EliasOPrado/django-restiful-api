@@ -1,3 +1,4 @@
+from rest_framework.fields import SerializerMethodField
 from rest_framework.serializers import ModelSerializer
 
 from comentarios.api.serializers import ComentarioSerializer
@@ -12,6 +13,7 @@ class PontoTuristicoSerializer(ModelSerializer):
     Comentarios = ComentarioSerializer(many=True)
     atracoes = AtracaoSerializer(many=True)
     Endereco = EnderecoSerializer()
+    descricao_completa = SerializerMethodField()
 
     class Meta:
         model = PontoTuristico
@@ -25,4 +27,9 @@ class PontoTuristicoSerializer(ModelSerializer):
                   'Comentarios',
                   'Avaliacoes',
                   'Endereco',
+                  # Incluido do SerializerMethodField
+                  'descricao_completa',
                   ]
+
+    def get_descricao_completa(self, obj):
+        return '%s - %s' % (obj.nome, obj.descricao)

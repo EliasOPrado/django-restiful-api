@@ -10,12 +10,13 @@ class PontoTuristico(models.Model):
     nome = models.CharField(max_length=150)
     descricao = models.TextField()
     aprovado = models.BooleanField(default=False)
+    foto = models.ImageField(upload_to='pontos_turisticos', null=True, blank=True)
     # Many to many and one to one below
     atracoes = models.ManyToManyField(Atracao)
     Comentarios = models.ManyToManyField(Comentario)
     Avaliacoes = models.ManyToManyField(Avaliacao)
     Endereco = models.ForeignKey(Endereco, on_delete=models.CASCADE)
-    foto = models.ImageField(upload_to='pontos_turisticos', null=True, blank=True)
+
 
     def __str__(self):
         return self.nome
