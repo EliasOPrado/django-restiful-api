@@ -24,6 +24,7 @@ from atracoes.api.viewsets import AtracaoViewSet
 from enderecos.api.viewsets import EnderecoViewSet
 from comentarios.api.viewsets import ComentarioViewSet
 from avaliacoes.api.viewsets import AvaliacaoViewSet
+from rest_framework.authtoken.views import obtain_auth_token
 
 
 router = routers.DefaultRouter()
@@ -37,6 +38,7 @@ router.register(r'avaliacoes', AvaliacaoViewSet, basename='Avaliacoes')
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include(router.urls)),
+    path('api-token-auth/', obtain_auth_token)
 ]
 # Essa configuracao e para mostrar os arquivos/imagens seguindo a url..
 if settings.DEBUG:
