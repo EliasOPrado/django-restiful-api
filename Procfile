@@ -1,0 +1,1 @@
+web: gunicorn pontos-turisticos-restfulapi.wsgi
