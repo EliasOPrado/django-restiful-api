@@ -147,3 +147,4 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 REST_FRAMEWORK = {
     'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend']
 }
+STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
